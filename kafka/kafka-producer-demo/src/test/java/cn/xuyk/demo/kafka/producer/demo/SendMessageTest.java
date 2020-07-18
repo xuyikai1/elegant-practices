@@ -23,7 +23,7 @@ public class SendMessageTest {
     public void sendMessage() throws InterruptedException {
 
         String topic = "topic02";
-        for(int i=0; i < 1000; i ++) {
+        for(int i=0; i < 100; i ++) {
             kafkaProducerService.sendMessage(topic, "hello kafka" + i);
             Thread.sleep(5);
         }

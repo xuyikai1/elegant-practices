@@ -1,7 +1,7 @@
 # kafka 配置
 spring:
   kafka:
-    bootstrap-servers: 192.168.10.145:9092
+    bootstrap-servers: 192.168.10.149:9092
     producer:
       retries: 0 # 发送消息失败的重试次数
       batch-size: 16384

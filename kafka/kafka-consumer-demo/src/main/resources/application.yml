@@ -16,4 +16,4 @@ spring:
     listener:
       ack-mode: manual #  ÷π§«© ’
       concurrency: 5
-    bootstrap-servers: 192.168.10.145:9092
+    bootstrap-servers: 192.168.10.149:9092
