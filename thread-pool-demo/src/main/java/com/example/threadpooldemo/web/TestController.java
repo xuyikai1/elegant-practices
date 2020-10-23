@@ -1,11 +1,10 @@
-package com.example.threadpooldemo.config;
+package com.example.threadpooldemo.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.Instant;
 import java.util.concurrent.ExecutorService;
 
 /**
@@ -14,7 +13,7 @@ import java.util.concurrent.ExecutorService;
  * @Date: 2020/10/20
  */
 @RestController
-public class Controller {
+public class TestController {
 
     @Autowired
     private ExecutorService executor;
@@ -24,7 +23,7 @@ public class Controller {
         for (int i=0 ; i<count ; i++){
             executor.submit(() ->
                     System.out.println("CurrentThread name:"
-                            + Thread.currentThread().getName() + ",date：" + Instant.now()));
+                            + Thread.currentThread().getName()));
 
         }
     }

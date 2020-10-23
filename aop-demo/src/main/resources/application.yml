@@ -3,7 +3,7 @@ server:
 
 # redis配置
 redisson:
-#  address: redis://192.168.1.136:6379
+  #  address: redis://192.168.1.136:6379
   address: redis://127.0.0.1:6379
   database: 0
 #  password: foobared
