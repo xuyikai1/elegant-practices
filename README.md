@@ -8,7 +8,4 @@ More elegant coding, with some demo put into practice along the way..
 - [x] **[责任链的2种实现方式，你更pick哪一种（转载）](https://zhuanlan.zhihu.com/p/149723869)** -> chain-demo
 - [x] **[Aop切面与自定义注解的日常应用](http://xuyk.top/posts/aop.html)** -> aop-demo
 - [x] **[如何优雅地异步编程](http://xuyk.top/posts/async.html)** -> async-demo
-- [x] 
-**[1：如何将日志系统切换到 Logback](https://mp.weixin.qq.com/s/IF6OmHfp9Yq1RNajCTG7-A)**  
-**[2：logback 中文手册/文档](https://github.com/itwanger/logback-chinese-manual)** 
-**[3：你确定你会用logback](https://mp.weixin.qq.com/s/3HVbJRr2SVDf4jrGUgaWpg)**-> logback-demo
+- [x] **[1：如何将日志系统切换到 Logback](https://mp.weixin.qq.com/s/IF6OmHfp9Yq1RNajCTG7-A)** | **[2：logback 中文手册/文档](https://github.com/itwanger/logback-chinese-manual)**  | **[3：你确定你会用logback](https://mp.weixin.qq.com/s/3HVbJRr2SVDf4jrGUgaWpg)**-> logback-demo
