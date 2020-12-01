@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import cn.hutool.core.thread.ThreadUtil;
 import com.example.demo.annotation.DistributedLock;
+import com.example.demo.annotation.ExceptionLog;
 import com.example.demo.annotation.RequestLog;
 import com.example.demo.exception.ServiceException;
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +42,18 @@ public class TestController {
                                   @RequestParam("isError") Boolean isError){
         if(isError){
             throw new ServiceException(500,"出现异常");
+        }
+        ThreadUtil.sleep(sleepTime);
+        return "success,userId:" + userId;
+    }
+
+    @ExceptionLog
+    @PostMapping("/exceptionLog/test")
+    public String exceptionLogTest(@RequestParam("sleepTime") long sleepTime,
+                                   @RequestParam("userId") String userId,
+                                   @RequestParam("isError") Boolean isError){
+        if(isError){
+            System.out.println(1/0);
         }
         ThreadUtil.sleep(sleepTime);
         return "success,userId:" + userId;

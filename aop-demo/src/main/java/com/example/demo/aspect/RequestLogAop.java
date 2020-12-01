@@ -8,6 +8,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -25,6 +28,9 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class RequestLogAop {
 
+    @Autowired
+    private ApplicationContext context;
+
     /**
      * 被 @requestLog 所注解的切点
      * @param requestLog
@@ -39,6 +45,13 @@ public class RequestLogAop {
      */
     @Around(value = "requestLogPointcut(requestLog)", argNames = "pjp,requestLog")
     public Object around(ProceedingJoinPoint pjp, RequestLog requestLog) throws Throwable {
+
+        // 生产环境不记录请求参数
+        Environment environment = context.getEnvironment();
+        String currentEnv = environment.getActiveProfiles()[0];
+        if("prod".equals(currentEnv)){
+            return pjp.proceed();
+        }
 
         // 请求信息
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
