@@ -6,6 +6,7 @@ import com.google.common.util.concurrent.*;
 import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ import java.util.concurrent.*;
 public class AsyncController {
 
     @Autowired
+    @Qualifier("testThreadPool")
     private ExecutorService executorService;
 
     @PostMapping("/oldAsync")
@@ -130,16 +132,16 @@ public class AsyncController {
         // ...
         // 业务代码
 
-        // 异步执行
+        // 异步执行 使用自定义线程池
         CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() ->{
-                // 为了灵活测试使用的参数param
-                if("error".equals(param)){
-                    throw new RuntimeException("测试异常");
-                }
-                log.info("线程池异步【关心返回值】，日常使用注意合理配置线程池参数");
-                ThreadUtil.sleep(sleepMillTime);
-                return "CompletableFuture result";
-        });
+            log.info("线程池异步【关心返回值】，日常使用注意合理配置线程池参数，线程池名称:{}",Thread.currentThread().getName());
+            // 为了灵活测试使用的参数param
+            if("error".equals(param)){
+                throw new RuntimeException("测试异常");
+            }
+            ThreadUtil.sleep(sleepMillTime);
+            return "CompletableFuture result";
+        },executorService);
 
         // 异步获取结果/处理异常
         completableFuture.handleAsync((result, exception) ->{
@@ -150,6 +152,7 @@ public class AsyncController {
             log.info("获取到异步返回值:{}",result);
             return result;
         });
+
     }
 
 }
