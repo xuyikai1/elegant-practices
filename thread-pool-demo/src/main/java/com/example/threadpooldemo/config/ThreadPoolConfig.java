@@ -1,6 +1,8 @@
 package com.example.threadpooldemo.config;
 
+import cn.hutool.core.thread.NamedThreadFactory;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,19 +13,30 @@ import java.util.concurrent.*;
  * @Description: 自定义线程池配置
  * @Date: 2020/10/20
  */
+@Slf4j
 @Configuration
 public class ThreadPoolConfig {
 
     /** 自定义线程池-名称 可根据业务来指定名称 **/
     private static final String THREAD_POOL_NAME_PREFIX = "demo-thread-pool";
     /** 自定义线程池-核心线程数  **/
-    private static final Integer THREAD_POOL_CORE_THREAD_SIZE = 8;
+    private static final Integer THREAD_POOL_CORE_THREAD_SIZE = 1;
     /** 自定义线程池-最大线程数 **/
     private static final Integer THREAD_POOL_MAX_THREAD_SIZE = 8;
     /** 自定义线程池-当线程数大于核心线程数时，多余的空闲线程存活的最长时间 **/
     private static final Integer THREAD_POOL_KEEP_ALIVE_TIME = 8;
     /** 自定义线程池-等待队列容量 **/
     private static final Integer THREAD_POOL_QUEUE_CAPACITY = 100;
+
+    @Bean
+    public ThreadPoolExecutor buildThreadPool(){
+        return new ThreadPoolExecutor(THREAD_POOL_CORE_THREAD_SIZE,
+                THREAD_POOL_MAX_THREAD_SIZE,
+                THREAD_POOL_KEEP_ALIVE_TIME,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(THREAD_POOL_QUEUE_CAPACITY),
+                new NamedThreadFactory("demo-threadPool-",false));
+    }
 
     /**
      * 创建自定义线程池，并交给spring作为Bean管理
