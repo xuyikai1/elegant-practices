@@ -1,0 +1,30 @@
+server:
+  port: 20086
+
+# 数据源
+spring:
+  application:
+    name: page-helper-demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+management:
+  endpoint:
+    health:
+      show-components: always # 展示更详细一些的信息
+  endpoints:
+    web:
+      exposure:
+        include: '*' #暴露所有的13个端点
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+info:
+  author: xuyk
+  email: xxx@qq.com
+  phone: 13022213122
