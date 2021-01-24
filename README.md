@@ -1,4 +1,4 @@
-# Java Trivia
+# elegant practices
 More elegant coding, with some demo put into practice along the way..
 
 **java路上的一些优雅实践与技术点demo，在此记录与分享**
