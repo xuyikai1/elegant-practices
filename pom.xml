@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>aop-practice</module>
+        <module>async-practice</module>
+        <module>chain-practice</module>
+        <module>logback-practice</module>
+        <module>mapstruct-practice</module>
+        <module>ali-oss-practice</module>
+        <module>pay-practice</module>
+        <module>proxy-practice</module>
+        <module>spring-event-practice</module>
+        <module>strategy-practice</module>
+        <module>thread-pool-practice</module>
+    </modules>
+
+    <!-- 统一springboot版本 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+    </parent>
+
+    <groupId>org.xuyk</groupId>
+    <artifactId>elegant-practices</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <!-- 组件版本 -->
+        <hutool-version>5.4.3</hutool-version>
+        <tk.mybatis-version>2.1.5</tk.mybatis-version>
+        <redission-version>3.13.4</redission-version>
+        <mysql-version>8.0.17</mysql-version>
+        <guava-version>30.0-jre</guava-version>
+        <mapstruct-jdk8-version>1.2.0.Final</mapstruct-jdk8-version>
+        <mapstruct-processor-version>1.2.0.Final</mapstruct-processor-version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- hu-tool工具类 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
