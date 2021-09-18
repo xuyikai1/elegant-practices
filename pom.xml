@@ -11,7 +11,7 @@
         <module>chain-practice</module>
         <module>logback-practice</module>
         <module>mapstruct-practice</module>
-        <module>ali-oss-practice</module>
+        <module>oss-practice</module>
         <module>pay-practice</module>
         <module>proxy-practice</module>
         <module>spring-event-practice</module>
