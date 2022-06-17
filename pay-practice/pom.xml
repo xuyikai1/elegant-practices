@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <fastjson-version>1.2.73</fastjson-version>
+        <fastjson-version>1.2.83</fastjson-version>
         <weixin-java-pay-version>3.2.0</weixin-java-pay-version>
         <alipay-sdk-java-version>3.4.27.ALL</alipay-sdk-java-version>
     </properties>
