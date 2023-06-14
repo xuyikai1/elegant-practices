@@ -39,7 +39,7 @@
         <tk.mybatis-version>2.1.5</tk.mybatis-version>
         <redission-version>3.13.4</redission-version>
         <mysql-version>8.0.17</mysql-version>
-        <guava-version>30.0-jre</guava-version>
+        <guava-version>32.0.0-jre</guava-version>
         <mapstruct-jdk8-version>1.2.0.Final</mapstruct-jdk8-version>
         <mapstruct-processor-version>1.2.0.Final</mapstruct-processor-version>
     </properties>
